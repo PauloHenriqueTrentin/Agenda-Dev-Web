@@ -1,4 +1,4 @@
-# ABEX-API
+# Agenda - BackEnd
 
   * Primeiramente Intalar com o comando:
   * ```
@@ -10,11 +10,7 @@
     POSTGRES_HOST=localhost
     POSTGRES_DB=arni-api
     POSTGRES_USERNAME=postgres
-<<<<<<< HEAD
-    POSTGRES_PASSWORD=teste
-=======
     POSTGRES_PASSWORD=unochapeco
->>>>>>> c5c61b0 (Cria-CRUD-Compromissos)
     POSTGRES_PORT=5432
     TOKEN_KEY=arni-api
     API_PORT=3333
