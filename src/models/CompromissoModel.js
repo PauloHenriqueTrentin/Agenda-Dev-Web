@@ -1,4 +1,4 @@
-import { DataTypes } from "sequelize";Add commentMore actions
+import { DataTypes } from "sequelize";
 import { sequelize } from "../config/config.js";
 import Contact from "./ContactModel.js";
 
