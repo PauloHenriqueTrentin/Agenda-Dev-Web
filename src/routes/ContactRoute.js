@@ -1,9 +1,11 @@
-import ContactController from '../controllers/ContactController.js'
+import express from "express";
+import ContactController from "../controllers/ContactController.js";
 
-export default (app) => {
-	app.post('/contact/', ContactController.persist)
-	app.patch('/contact/:id', ContactController.persist)
-	app.delete('/contact/destroy:id', ContactController.destroy)
-	app.get('/contact/', ContactController.get)
-	app.get('/contact/:id', ContactController.get)
-}
+const router = express.Router();
+router.get("/", ContactController.get);
+router.get("/:id", ContactController.get);
+router.post("/", ContactController.persist);
+router.put("/:id", ContactController.persist);
+router.delete("/:id", ContactController.destroy);
+
+export default router;

@@ -1,40 +1,49 @@
-// models/Contact.ts
 import { DataTypes } from "sequelize";
 import { sequelize } from "../config/config.js";
 
 const Contact = sequelize.define(
-  'contacts',
+  "contacts",
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
-    name: {
+    nome: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      defaultValue: "Nome Padrão",
+    },
+    sobrenome: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: "Sobrenome Padrão", 
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false, 
       validate: {
-        isEmail: true
-      }
+        isEmail: true, 
+      },
     },
-    phone: {
+    telefone: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true, 
     },
-    message: {
+    observacao: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: true, 
+    },
+    categoria: {
+      type: DataTypes.STRING,
+      allowNull: true, 
     },
   },
   {
     freezeTableName: true,
     timestamps: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
+    createdAt: "created_at",
+    updatedAt: "updated_at",
   }
 );
 

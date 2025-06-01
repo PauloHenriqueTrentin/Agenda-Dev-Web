@@ -1,7 +1,12 @@
-import ContactRoute from './ContactRoute.js'; 
+import express from "express";
+import ContactRoute from "./ContactRoute.js";
+import CompromissoRoute from "./CompromissoRoute.js";
 
-function Routes (app) {
-    ContactRoute(app)
-}
+const router = express.Router();
 
-export default Routes
+router.use("/contatos", ContactRoute);
+router.use("/compromissos", CompromissoRoute);
+
+export default (app) => {
+  app.use("/api", router);
+};
