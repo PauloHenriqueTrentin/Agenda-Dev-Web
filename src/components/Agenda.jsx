@@ -43,30 +43,25 @@ export default function Agenda() {
     carregarDados();
   }, []);
 
-  const handleSalvarCompromisso = async (dadosCompromisso) => {
-    try {
-      setLoading(true);
-      if (compromissoParaEditar) {
-        const compromissoAtualizado = await compromissosService.atualizar(
-          compromissoParaEditar.id,
-          dadosCompromisso
-        );
-        setCompromissos(compromissos.map(comp =>
-          comp.id === compromissoParaEditar.id ? compromissoAtualizado : comp
-        ));
-      } else {
-        const compromissoCriado = await compromissosService.criar(dadosCompromisso);
-        setCompromissos([...compromissos, compromissoCriado]);
-      }
-      setShowModal(false);
-      setCompromissoParaEditar(null);
-    } catch (err) {
-      setError('Erro ao salvar compromisso');
-      console.error(err);
-    } finally {
-      setLoading(false);
+const handleSalvarCompromisso = async (dadosCompromisso) => {
+  try {
+    setLoading(true);
+    if (compromissoParaEditar) {
+      await compromissosService.atualizar(compromissoParaEditar.id, dadosCompromisso);
+    } else {
+      await compromissosService.criar(dadosCompromisso);
     }
-  };
+    await buscarCompromissos();
+    setShowModal(false);
+    setCompromissoParaEditar(null);
+  } catch (err) {
+    setError('Erro ao salvar compromisso');
+    console.error(err);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   const handleEditarCompromisso = (compromisso) => {
     setCompromissoParaEditar(compromisso);
