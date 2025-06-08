@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// filepath: c:\Users\JOÃO VITOR\OneDrive\Documentos\reactmoreto\teste\src\App.jsx
+>>>>>>> 1a0c9ea (Adiciona-Front-Contatos)
 import React, { useState } from 'react';
 import Agenda from "./components/Agenda";
 import Sidebar from "./Sidebar";
